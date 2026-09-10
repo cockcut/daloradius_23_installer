@@ -243,6 +243,7 @@ sudo cp -f radius_server_info.php "${WEB_ROOT}/radius/app/operators/library/exte
 sudo touch /var/log/daloradius.log
 sudo chmod 777 /var/log/daloradius.log
 sudo sed -i \
+  -e "s|/var/log/syslog|/var/log/messages|g" \
   -e "s|/etc/freeradius/3.0/proxy.conf|/etc/raddb/proxy.conf|g" \
   -e "s|/var/www/daloradius/var|/var/www/html/radius/var|g" \
   -e "s|/var/www/daloradius/app/common/templates|/var/www/html/radius/app/common/templates|g" \
