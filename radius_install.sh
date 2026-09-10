@@ -239,7 +239,7 @@ sudo chmod -R 775 "${WEB_ROOT}/radius"
 # --- 7-4. daloRADIUS에서 로그 보기위해 수정 ---
 sudo touch /var/log/daloradius.log
 sudo chmod 777 /var/log/daloradius.log
-#sudo sed -i "s/\$configValues\['CONFIG_LOG_FILE'\] = '.*';/\$configValues\['CONFIG_LOG_FILE'\] = '\/var\/log\/daloradius.log';/" "${WEB_ROOT}/radius/library/daloradius.conf.php"
+sudo sed -i "s/\$configValues\['CONFIG_LOG_FILE'\] = '.*';/\$configValues\['CONFIG_LOG_FILE'\] = '\/var\/log\/daloradius.log';/" "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php"
 
 # --- 8. 서비스 시작 및 방화벽 설정 ---
 # --- 8-1. 웹, Radius 서비스 시작 ---
