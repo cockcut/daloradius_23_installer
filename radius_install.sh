@@ -242,7 +242,15 @@ sudo cp -f radius_server_info.php "${WEB_ROOT}/radius/app/operators/library/exte
 # --- 7-4. daloRADIUS에서 로그 보기위해 수정 ---
 sudo touch /var/log/daloradius.log
 sudo chmod 777 /var/log/daloradius.log
-sudo sed -i "s/\$configValues\['CONFIG_LOG_FILE'\] = '.*';/\$configValues\['CONFIG_LOG_FILE'\] = '\/var\/log\/daloradius.log';/" "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php"
+sudo sed -i \
+  -e "s|/etc/freeradius/3.0/proxy.conf|/etc/raddb/proxy.conf|g" \
+  -e "s|/var/www/daloradius/var|/var/www/html/radius/var|g" \
+  -e "s|/var/www/daloradius/app/common/templates|/var/www/html/radius/app/common/templates|g" \
+  -e "s|/var/www/radius/app/common/templates|/var/www/html/radius/app/common/templates|g" \
+  -e "s|/var/log/freeradius/radius.log|/var/log/eradius/radius.log|g" \
+  -e "s|\$configValues\['CONFIG_LOG_FILE'\] = '.*';|\$configValues\['CONFIG_LOG_FILE'\] = '/var/log/daloradius.log';|g" \
+  "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php"
+
 
 # --- 8. 서비스 시작 및 방화벽 설정 ---
 # --- 8-1. 웹, Radius 서비스 시작 ---
