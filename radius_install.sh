@@ -243,8 +243,8 @@ sudo chmod 777 /var/log/daloradius.log
 
 # --- 8. 서비스 시작 및 방화벽 설정 ---
 # --- 8-1. 웹, Radius 서비스 시작 ---
-sudo rm -f ./daloradius-users.conf /etc/httpd/conf.d/daloradius-users.conf
-sudo rm -f ./daloradius-operators.conf /etc/httpd/conf.d/daloradius-operators.conf
+sudo rm -f /etc/httpd/conf.d/daloradius-users.conf
+sudo rm -f /etc/httpd/conf.d/daloradius-operators.conf
 sudo cp -f ./daloradius-users.conf /etc/httpd/conf.d/daloradius-users.conf
 sudo cp -f ./daloradius-operators.conf /etc/httpd/conf.d/daloradius-operators.conf
 echo "--- 8-1. 웹, Radius 서비스 시작 중..."
