@@ -221,6 +221,9 @@ sudo sed -i "s/\$configValues\['CONFIG_DB_PASS'\] = '.*';/\$configValues\['CONFI
 sudo sed -i "s/\$configValues\['CONFIG_DB_NAME'\] = '.*';/\$configValues\['CONFIG_DB_NAME'\] = '${MYSQL_DATABASE}';/" "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php"
 sudo chown -R apache:apache "${WEB_ROOT}/radius"
 sudo chmod -R 775 "${WEB_ROOT}/radius"
+echo "--- 6-1. daloRADIUS에서 데몬체크 패치 중..."
+sudo cp -f "${WEB_ROOT}/radius/app/operators/library/extensions/radius_server_info.php" "${WEB_ROOT}/radius/app/operators/library/extensions/radius_server_info.php.bak"
+sudo cp -f radius_server_info.php "${WEB_ROOT}/radius/app/operators/library/extensions/radius_server_info.php"
 
 # --- 7. daloRADIUS에 NAS 추가후 radius 재시작 버튼 추가하기 위한 파일 수정 ---
 # --- 7.1 menu-mng-rad-nas.php, mng-rad-nas.php 수정 ---
