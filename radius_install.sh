@@ -247,7 +247,7 @@ sudo sed -i \
   -e "s|/var/www/daloradius/var|/var/www/html/radius/var|g" \
   -e "s|/var/www/daloradius/app/common/templates|/var/www/html/radius/app/common/templates|g" \
   -e "s|/var/www/radius/app/common/templates|/var/www/html/radius/app/common/templates|g" \
-  -e "s|/var/log/freeradius/radius.log|/var/log/eradius/radius.log|g" \
+  -e "s|/var/log/freeradius/radius.log|/var/log/radius/radius.log|g" \
   -e "s|\$configValues\['CONFIG_LOG_FILE'\] = '.*';|\$configValues\['CONFIG_LOG_FILE'\] = '/var/log/daloradius.log';|g" \
   "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php"
 
