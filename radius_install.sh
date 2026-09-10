@@ -30,7 +30,7 @@ fi
 sudo rm -rf "${WEB_ROOT}/daloradius*"
 sudo rm -rf "${WEB_ROOT}/radius*"
 sudo unzip "${DALORADIUS_ZIP}"
-sudo mv "./daloradius-1.3" "${WEB_ROOT}/radius"
+sudo mv "./daloradius-2.3" "${WEB_ROOT}/radius"
 
 # --- 3. MySQL/MariaDB 데이터베이스 설정 ---
 echo "--- 3-1. MySQL/MariaDB 데이터베이스 시작 중..."
