@@ -187,12 +187,12 @@ sudo ln -s ${freeradius_path}/mods-available/sql ${freeradius_path}/mods-enabled
 sudo ln -s ${freeradius_path}/mods-available/sqlcounter ${freeradius_path}/mods-enabled/sqlcounter
 sudo ln -s ${freeradius_path}/mods-available/sqlippool ${freeradius_path}/mods-enabled/sqlippool
 
-# --- 5-1. freeradius에 Ruckus Radius Doctionary 적용 ---
-echo "--- 5-1. freeradius에 Ruckus Radius Doctionary 적용중..."
+# --- 5-1. freeradius에 Ruckus RADIUS Doctionary 적용 ---
+echo "--- 5-1. freeradius에 Ruckus RADIUS Doctionary 적용중..."
 sudo mv dictionary.ruckus ${freeradius_path}
 sudo grep -qF '$INCLUDE dictionary.ruckus' "${freeradius_path}/dictionary" || sudo sed -i '$a\$INCLUDE dictionary.ruckus' "${freeradius_path}/dictionary"
-# --- 5-2. MySQL/MariaDB에 Ruckus Radius Doctionary import ---
-echo "--- 5-2. MySQL/MariaDB에 Ruckus Radius Doctionary import중..."
+# --- 5-2. MySQL/MariaDB에 Ruckus RADIUS Doctionary import ---
+echo "--- 5-2. MySQL/MariaDB에 Ruckus RADIUS Doctionary import중..."
 # 기존 DB에 동일한 Ruckus Vendor attributes가 있다면 중복 방지를 위해 삭제 후 재등록
 sudo mysql -u root -p"${MYSQL_ROOT_PASSWORD}" "${MYSQL_DATABASE}" -e "DELETE FROM dictionary WHERE Vendor = 'Ruckus';"
 # dictionary.ruckus 파일에서 ATTRIBUTE 라인만 추출하여 DB에 INSERT
