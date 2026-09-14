@@ -226,10 +226,23 @@ sudo cp -f "${WEB_ROOT}/radius/app/operators/library/extensions/radius_server_in
 sudo cp -f radius_server_info.php "${WEB_ROOT}/radius/app/operators/library/extensions/radius_server_info.php"
 
 # --- 7. daloRADIUS에 NAS 추가후 radius 재시작 버튼 추가하기 위한 파일 수정 ---
-# --- 7.1 menu-mng-rad-nas.php, mng-rad-nas.php 수정 ---
-#echo "--- 7.1 menu-mng-rad-nas.php, mng-rad-nas.php 수정중..."
-#sudo cp -f ${WEB_ROOT}/temp/menu-mng-rad-nas.php ${WEB_ROOT}/radius
-#sudo cp -f ${WEB_ROOT}/temp/mng-rad-nas.php ${WEB_ROOT}/radius
+# --- 7.1 mng-rad-nas.php, mng-rad-nas-new.php, mng-rad-nas-edit.php, mng-rad-nas-del.php, rad-nas.php 수정 ---
+echo "--- 7.1 mng-rad-nas.php, mng-rad-nas-new.php, mng-rad-nas-edit.php, mng-rad-nas-del.php, rad-nas.php 수정중..."
+# --- mng-rad-nas.php 백업 후 패치 복사 ---
+sudo cp -f ${WEB_ROOT}/radius/app/operators/mng-rad-nas.php ${WEB_ROOT}/radius/app/operators/mng-rad-nas.php.bak
+sudo cp -f ${WEB_ROOT}/temp/mng-rad-nas.php ${WEB_ROOT}/radius/app/operators
+# --- mng-rad-nas-new.php 백업 후 패치 복사 ---
+sudo cp -f ${WEB_ROOT}/radius/app/operators/mng-rad-nas-new.php ${WEB_ROOT}/radius/app/operators/mng-rad-nas-new.php.bak
+sudo cp -f ${WEB_ROOT}/temp/mng-rad-nas-new.php ${WEB_ROOT}/radius/app/operators
+# --- mng-rad-nas-edit.php 백업 후 패치 복사 ---
+sudo cp -f ${WEB_ROOT}/radius/app/operators/mng-rad-nas-edit.php ${WEB_ROOT}/radius/app/operators/mng-rad-nas-edit.php.bak
+sudo cp -f ${WEB_ROOT}/temp/mng-rad-nas-edit.php ${WEB_ROOT}/radius/app/operators
+# --- mng-rad-nas-del.php 백업 후 패치 복사 ---
+sudo cp -f ${WEB_ROOT}/radius/app/operators/mng-rad-nas-del.php ${WEB_ROOT}/radius/app/operators/mng-rad-nas-del.php.bak
+sudo cp -f ${WEB_ROOT}/temp/mng-rad-nas-del.php ${WEB_ROOT}/radius/app/operators
+# --- rad-nas.php 백업 후 패치 복사 ---
+sudo cp -f ${WEB_ROOT}/radius/app/operators/include/menu/sidebar/mng/rad-nas.php ${WEB_ROOT}/radius/app/operators/include/menu/sidebar/mng/rad-nas.php.bak
+sudo cp -f ${WEB_ROOT}/temp/rad-nas.php ${WEB_ROOT}/radius/app/operators/include/menu/sidebar/mng
 
 # --- 7.2 mng-rad-attributes-del.php 수정 ---
 #echo "--- 7.2 mng-rad-attributes-del.php 수정중..."
