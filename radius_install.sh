@@ -255,6 +255,7 @@ sudo cp -f ${WEB_ROOT}/temp/rad-nas.php ${WEB_ROOT}/radius/app/operators/include
 # --- 7-4. daloRADIUS에서 로그 보기위해 수정 ---
 sudo touch /var/log/daloradius.log
 sudo chmod 777 /var/log/daloradius.log
+suco cp "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php" "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php.bak"
 sudo sed -i \
   -e "s|/var/log/syslog|/var/log/messages|g" \
   -e "s|/etc/freeradius/3.0/proxy.conf|/etc/raddb/proxy.conf|g" \
@@ -262,9 +263,8 @@ sudo sed -i \
   -e "s|/var/www/daloradius/app/common/templates|/var/www/html/radius/app/common/templates|g" \
   -e "s|/var/www/radius/app/common/templates|/var/www/html/radius/app/common/templates|g" \
   -e "s|/var/log/freeradius/radius.log|/var/log/radius/radius.log|g" \
-  -e "s|\$configValues\['CONFIG_LOG_FILE'\] = '.*';|\$configValues\['CONFIG_LOG_FILE'\] = '/var/log/daloradius.log';|g" \
+  -e "s|\$configValues\['CONFIG_LOG_FILE'\] = '.*';|\$configValues\['CONFIG_LOG_FILE'\] = '/var/www/html/radius/var/log/daloradius.log';|g" \
   "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php"
-
 
 # --- 8. 서비스 시작 및 방화벽 설정 ---
 # --- 8-1. 웹, Radius 서비스 시작 ---
