@@ -31,7 +31,7 @@
 
    3-2-1) git 레포지토리 복사하여 private 폴더에 다운로그 하기
 
-      sudo git clone https://github.com/cockcut/daloradius_13_installer private
+      sudo git clone https://github.com/cockcut/daloradius_23_installer private
 
    3-2-2) 다운받은 private 폴더로 이동
 
