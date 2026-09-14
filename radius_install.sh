@@ -253,7 +253,8 @@ sudo cp -f ${WEB_ROOT}/temp/rad-nas.php ${WEB_ROOT}/radius/app/operators/include
 #sudo cp -f ${WEB_ROOT}/temp/rep-online.php ${WEB_ROOT}/radius
 
 # --- 7-4. daloRADIUS에서 로그 보기위해 수정 ---
-sudo touch ${WEB_ROOT}/radius/var/log/daloradius.log
+###sudo touch ${WEB_ROOT}/radius/var/log/daloradius.log
+sudo mkdir -p ${WEB_ROOT}/radius/var/log && sudo touch ${WEB_ROOT}/radius/var/log/daloradius.log
 sudo chmod 777 ${WEB_ROOT}/radius/var/log/daloradius.log
 # --- daloradius.conf.php 백업 ---
 suco cp "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php" "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php.bak"
