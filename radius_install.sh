@@ -255,7 +255,9 @@ sudo cp -f ${WEB_ROOT}/temp/rad-nas.php ${WEB_ROOT}/radius/app/operators/include
 # --- 7-4. daloRADIUS에서 로그 보기위해 수정 ---
 sudo touch /var/log/daloradius.log
 sudo chmod 777 /var/log/daloradius.log
+# --- daloradius.conf.php 백업 ---
 suco cp "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php" "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php.bak"
+# --- daloradius.conf.php 수정 ---
 sudo sed -i \
   -e "s|/var/log/syslog|/var/log/messages|g" \
   -e "s|/etc/freeradius/3.0/proxy.conf|/etc/raddb/proxy.conf|g" \
