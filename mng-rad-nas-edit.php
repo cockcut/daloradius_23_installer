@@ -92,7 +92,7 @@
             $shortname = (array_key_exists('shortname', $_POST) && !empty(str_replace("%", "", trim($_POST['shortname']))))
                        ? str_replace("%", "", trim($_POST['shortname'])) : "";
             $ports = (array_key_exists('ports', $_POST) && !empty(trim($_POST['ports'])) &&
-                      intval(trim($_POST['ports'])) >= 1 && intval(trim($_POST['ports'])) <= 65535)
+                      intval(trim($_POST['ports'])) >= 0 && intval(trim($_POST['ports'])) <= 65535)
                    ? intval(trim($_POST['ports'])) : "";
             
             $description = (array_key_exists('description', $_POST) && !empty(str_replace("%", "", trim($_POST['description']))))
@@ -242,7 +242,7 @@
                                         "name" => "ports",
                                         "caption" => t('all','NasPorts'),
                                         "type" => "number",
-                                        "min" => "1",
+                                        "min" => "0",
                                         "max" => "65535",
                                         "value" => ((isset($ports)) ? $ports : ""),
                                         "tooltipText" => "e.g. 1700, 3799, etc.",
