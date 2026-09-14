@@ -257,7 +257,7 @@ sudo cp -f ${WEB_ROOT}/temp/rad-nas.php ${WEB_ROOT}/radius/app/operators/include
 sudo mkdir -p ${WEB_ROOT}/radius/var/log && sudo touch ${WEB_ROOT}/radius/var/log/daloradius.log
 sudo chmod 777 ${WEB_ROOT}/radius/var/log/daloradius.log
 # --- daloradius.conf.php 백업 ---
-suco cp "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php" "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php.bak"
+sudo cp "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php" "${WEB_ROOT}/radius/app/common/includes/daloradius.conf.php.bak"
 # --- daloradius.conf.php 수정 ---
 sudo sed -i \
   -e "s|/var/log/syslog|/var/log/messages|g" \
